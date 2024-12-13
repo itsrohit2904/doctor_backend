@@ -1,6 +1,6 @@
-import express from 'express';
-import { loginDoctor, appointmentsDoctor, appointmentCancel, doctorList, changeAvailablity, appointmentComplete, doctorDashboard, doctorProfile, updateDoctorProfile } from '../controllers/doctorController.js';
-import authDoctor from '../middleware/authDoctor.js';
+const express = require('express');
+const { loginDoctor, appointmentsDoctor, appointmentCancel, doctorList, changeAvailablity, appointmentComplete, doctorDashboard, doctorProfile, updateDoctorProfile } = require('../controllers/doctorController.js');
+const authDoctor = require('../middleware/authDoctor.js');
 const doctorRouter = express.Router();
 
 doctorRouter.post("/login", loginDoctor)
@@ -13,4 +13,4 @@ doctorRouter.get("/dashboard", authDoctor, doctorDashboard)
 doctorRouter.get("/profile", authDoctor, doctorProfile)
 doctorRouter.post("/update-profile", authDoctor, updateDoctorProfile)
 
-export default doctorRouter;
+module.exports=doctorRouter;

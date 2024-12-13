@@ -1,10 +1,10 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
-import validator from "validator";
-import userModel from "../models/userModel.js";
-import doctorModel from "../models/doctorModel.js";
-import appointmentModel from "../models/appointmentModel.js";
-import { v2 as cloudinary } from 'cloudinary'
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const validator = require('validator');
+const userModel = require('../models/userModel.js');
+const doctorModel = require('../models/doctorModel.js');
+const appointmentModel = require('../models/appointmentModel.js');
+const { v2: cloudinary } = require('cloudinary');
 // import stripe from "stripe";
 // import razorpay from 'razorpay';
 
@@ -343,7 +343,7 @@ const listAppointment = async (req, res) => {
 
 // }
 
-export {
+module.exports= {
     loginUser,
     registerUser,
     getProfile,

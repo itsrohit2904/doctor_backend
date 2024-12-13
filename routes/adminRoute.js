@@ -1,8 +1,9 @@
-import express from 'express';
-import { loginAdmin, appointmentsAdmin, appointmentCancel, addDoctor, allDoctors, adminDashboard } from '../controllers/adminController.js';
-import { changeAvailablity } from '../controllers/doctorController.js';
-import authAdmin from '../middleware/authAdmin.js';
-import upload from '../middleware/multer.js';
+const express = require('express');
+const { loginAdmin, appointmentsAdmin, appointmentCancel, addDoctor, allDoctors, adminDashboard } = require('../controllers/adminController.js');
+const { changeAvailablity } = require('../controllers/doctorController.js');
+const authAdmin = require('../middleware/authAdmin.js');
+const upload = require('../middleware/multer.js');
+
 const adminRouter = express.Router();
 
 adminRouter.post("/login", loginAdmin)
@@ -13,4 +14,4 @@ adminRouter.get("/all-doctors", authAdmin, allDoctors)
 adminRouter.post("/change-availability", authAdmin, changeAvailablity)
 adminRouter.get("/dashboard", authAdmin, adminDashboard)
 
-export default adminRouter;
+module.exports= adminRouter;

@@ -79,7 +79,7 @@ doctor-appointment-backend/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/itsrohit2904/doctor_backend.git
+   git clone <repository-url>
    ```
 2. Install dependencies:
    ```bash

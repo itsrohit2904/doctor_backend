@@ -1,12 +1,16 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const connectDB = async () => {
 
-    mongoose.connection.on('connected', () => console.log("Database Connected"))
-    await mongoose.connect(`${process.env.MONGODB_URI}`)
-
+    try {
+        await mongoose.connect(`${process.env.MONGODB_URI}`);
+        console.log("Database Connected"); 
+    } catch (error) {
+        console.error(`Error connecting to MongoDB: ${error}`);
+        process.exit(1); // Exit the process with an error code
+    }
 }
 
-export default connectDB;
+module.exports = connectDB;
 
 // Do not use '@' symbol in your databse user's password else it will show an error.

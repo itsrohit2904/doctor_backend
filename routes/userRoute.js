@@ -1,13 +1,12 @@
-import express from 'express';
-import { loginUser, registerUser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment, 
-    // paymentRazorpay,
-    //  verifyRazorpay,
-    //   paymentStripe, 
-    //   verifyStripe
-     } 
-      from '../controllers/userController.js';
-import upload from '../middleware/multer.js';
-import authUser from '../middleware/authUser.js';
+const express = require('express');
+const { loginUser, registerUser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment, 
+    // paymentRazorpay, 
+    // verifyRazorpay, 
+    // paymentStripe, 
+    // verifyStripe 
+} = require('../controllers/userController.js');
+const upload = require('../middleware/multer.js');
+const authUser = require('../middleware/authUser.js');
 const userRouter = express.Router();
 
 userRouter.post("/register", registerUser)
@@ -23,4 +22,4 @@ userRouter.post("/cancel-appointment", authUser, cancelAppointment)
 // userRouter.post("/payment-stripe", authUser, paymentStripe)
 // userRouter.post("/verifyStripe", authUser, verifyStripe)
 
-export default userRouter;
+module.exports= userRouter;

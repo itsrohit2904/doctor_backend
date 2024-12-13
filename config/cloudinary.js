@@ -1,4 +1,6 @@
-import { v2 as cloudinary } from 'cloudinary';
+
+
+const { v2: cloudinary } = require('cloudinary'); 
 
 const connectCloudinary = async () => {
 
@@ -10,4 +12,4 @@ const connectCloudinary = async () => {
 
 }
 
-export default connectCloudinary;
+module.exports = connectCloudinary;
