@@ -4,7 +4,7 @@ const doc = {
       title: 'My API',
       description: 'Description'
     },
-    host: 'doctor-backend-4fg7.onrender.com'
+    host: 'doctor-backend-1-pbd3.onrender.com'
   };
   
   const outputFile = './swagger-output.json';
