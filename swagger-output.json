@@ -5,13 +5,11 @@
     "description": "API documentation for the Doctor Appointment system.",
     "version": "1.0.0"
   },
-  "host": "doctor-backend-1-pbd3.onrender.com",
+  "host": "localhost:4000",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["http"],
   "paths": {
-    "/login": {
+    "/api/admin/login": {
       "post": {
         "description": "Admin login",
         "parameters": [
@@ -22,10 +20,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "admin@example.com"
+                  "type": "string"
                 },
                 "password": {
-                  "example": "password"
+                  "type": "string"
                 }
               }
             }
@@ -38,9 +36,9 @@
         }
       }
     },
-    "/add-doctor": {
+    "/api/doctor/login": {
       "post": {
-        "description": "Add a new doctor (Admin only).",
+        "description": "Doctor login",
         "parameters": [
           {
             "name": "body",
@@ -48,32 +46,11 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "Dr. Smith"
-                },
                 "email": {
-                  "example": "drsmith@example.com"
+                  "type": "string"
                 },
                 "password": {
-                  "example": "password"
-                },
-                "speciality": {
-                  "example": "Cardiologist"
-                },
-                "degree": {
-                  "example": "MBBS, MD"
-                },
-                "experience": {
-                  "example": "10 years"
-                },
-                "about": {
-                  "example": "Expert in cardiac surgeries."
-                },
-                "fees": {
-                  "example": 500
-                },
-                "address": {
-                  "example": "123 Clinic Road"
+                  "type": "string"
                 }
               }
             }
@@ -81,24 +58,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Doctor added successfully."
+            "description": "Doctor logged in successfully."
           }
         }
       }
     },
-    "/appointments": {
-      "get": {
-        "description": "Get all appointments (Admin or Doctor only).",
-        "responses": {
-          "200": {
-            "description": "List of appointments."
-          }
-        }
-      }
-    },
-    "/cancel-appointment": {
+    "/api/user/login": {
       "post": {
-        "description": "Cancel an appointment.",
+        "description": "User login",
         "parameters": [
           {
             "name": "body",
@@ -106,171 +73,41 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
-                  "example": "12345"
-                },
-                "appointmentId": {
-                  "example": "67890"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Appointment cancelled successfully."
-          }
-        }
-      }
-    },
-    "/all-doctors": {
-      "get": {
-        "description": "Get all doctors (Admin only).",
-        "responses": {
-          "200": {
-            "description": "List of all doctors."
-          }
-        }
-      }
-    },
-    "/change-availability": {
-      "post": {
-        "description": "Change doctor availability (Admin or Doctor only).",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "docId": {
-                  "example": "12345"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Availability changed successfully."
-          }
-        }
-      }
-    },
-    "/dashboard": {
-      "get": {
-        "description": "Get admin or doctor dashboard details.",
-        "responses": {
-          "200": {
-            "description": "Dashboard details."
-          }
-        }
-      }
-    },
-    "/list": {
-      "get": {
-        "description": "Get list of doctors.",
-        "responses": {
-          "200": {
-            "description": "List of doctors."
-          }
-        }
-      }
-    },
-    "/complete-appointment": {
-      "post": {
-        "description": "Mark an appointment as complete (Doctor only).",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "docId": {
-                  "example": "12345"
-                },
-                "appointmentId": {
-                  "example": "67890"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Appointment marked as complete."
-          }
-        }
-      }
-    },
-    "/profile": {
-      "get": {
-        "description": "Get doctor profile (Doctor only).",
-        "responses": {
-          "200": {
-            "description": "Doctor profile details."
-          }
-        }
-      }
-    },
-    "/update-profile": {
-      "post": {
-        "description": "Update user profile.",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "userId": {
-                  "example": "12345"
-                },
-                "name": {
-                  "example": "John Doe"
-                },
-                "phone": {
-                  "example": "1234567890"
-                },
-                "address": {
-                  "example": "123 Main Street"
-                },
-                "dob": {
-                  "example": "1990-01-01"
-                },
-                "gender": {
-                  "example": "Male"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Profile updated successfully."
-          }
-        }
-      }
-    },
-    "/register": {
-      "post": {
-        "description": "Register a new user.",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "John Doe"
-                },
                 "email": {
-                  "example": "johndoe@example.com"
+                  "type": "string"
                 },
                 "password": {
-                  "example": "password"
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User logged in successfully."
+          }
+        }
+      }
+    },
+    "/api/user/register": {
+      "post": {
+        "description": "Register a new user",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
                 }
               }
             }
@@ -283,19 +120,81 @@
         }
       }
     },
-    "/get-profile": {
-      "get": {
-        "description": "Get user profile (User only).",
+    "/api/admin/add-doctor": {
+      "post": {
+        "description": "Add a new doctor (Admin only)",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "speciality": {
+                  "type": "string"
+                },
+                "degree": {
+                  "type": "string"
+                },
+                "experience": {
+                  "type": "string"
+                },
+                "about": {
+                  "type": "string"
+                },
+                "fees": {
+                  "type": "number"
+                },
+                "address": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "User profile details."
+            "description": "Doctor added successfully."
           }
         }
       }
     },
-    "/book-appointment": {
+    "/api/admin/remove-doctor": {
       "post": {
-        "description": "Book an appointment (User only).",
+        "description": "Remove a doctor by ID (Admin only)",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "docId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Doctor removed successfully."
+          }
+        }
+      }
+    },
+    "/api/user/book-appointment": {
+      "post": {
+        "description": "Book an appointment (User only)",
         "parameters": [
           {
             "name": "body",
@@ -304,25 +203,114 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "12345"
+                  "type": "string"
                 },
                 "docId": {
-                  "example": "67890"
+                  "type": "string"
                 },
                 "slotDate": {
-                  "example": "2024-12-15"
+                  "type": "string",
+                  "format": "date"
                 },
                 "slotTime": {
-                  "example": "10:30 AM"
+                  "type": "string"
                 }
               }
             }
           }
         ],
         "responses": {
-
           "200": {
-            "description": "OK"
+            "description": "Appointment booked successfully."
+          }
+        }
+      }
+    },
+    "/api/user/cancel-appointment": {
+      "post": {
+        "description": "Cancel an appointment (User only)",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "appointmentId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment cancelled successfully."
+          }
+        }
+      }
+    },
+    "/api/admin/appointments": {
+  "get": {
+    "description": "Get a specific appointment by appointment ID (Admin only)",
+    "parameters": [
+      {
+        "name": "appointmentId",
+        "in": "path",
+        "required": true,
+        "description": "The ID of the appointment to retrieve",
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Appointment retrieved successfully.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Appointment"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Appointment not found"
+      },
+      "401": {
+        "description": "Unauthorized, admin access required"
+      }
+    }
+  }
+},
+
+    "/api/doctor/complete-appointment": {
+      "post": {
+        "description": "Mark an appointment as complete (Doctor only)",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "docId": {
+                  "type": "string"
+                },
+                "appointmentId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment marked as complete."
           }
         }
       }
