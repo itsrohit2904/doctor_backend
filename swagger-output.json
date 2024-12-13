@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "Doctor Appointment API",
+    "description": "API documentation for the Doctor Appointment system.",
     "version": "1.0.0"
   },
   "host": "doctor-backend-1-pbd3.onrender.com",
@@ -13,7 +13,7 @@
   "paths": {
     "/login": {
       "post": {
-        "description": "",
+        "description": "Admin login",
         "parameters": [
           {
             "name": "body",
@@ -22,10 +22,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "example": "admin@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "password"
                 }
               }
             }
@@ -33,14 +33,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Admin logged in successfully."
           }
         }
       }
     },
     "/add-doctor": {
       "post": {
-        "description": "",
+        "description": "Add a new doctor (Admin only).",
         "parameters": [
           {
             "name": "body",
@@ -49,31 +49,31 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "Dr. Smith"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "drsmith@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "password"
                 },
                 "speciality": {
-                  "example": "any"
+                  "example": "Cardiologist"
                 },
                 "degree": {
-                  "example": "any"
+                  "example": "MBBS, MD"
                 },
                 "experience": {
-                  "example": "any"
+                  "example": "10 years"
                 },
                 "about": {
-                  "example": "any"
+                  "example": "Expert in cardiac surgeries."
                 },
                 "fees": {
-                  "example": "any"
+                  "example": 500
                 },
                 "address": {
-                  "example": "any"
+                  "example": "123 Clinic Road"
                 }
               }
             }
@@ -81,24 +81,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Doctor added successfully."
           }
         }
       }
     },
     "/appointments": {
       "get": {
-        "description": "",
+        "description": "Get all appointments (Admin or Doctor only).",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "List of appointments."
           }
         }
       }
     },
     "/cancel-appointment": {
       "post": {
-        "description": "",
+        "description": "Cancel an appointment.",
         "parameters": [
           {
             "name": "body",
@@ -107,10 +107,10 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "12345"
                 },
                 "appointmentId": {
-                  "example": "any"
+                  "example": "67890"
                 }
               }
             }
@@ -118,24 +118,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Appointment cancelled successfully."
           }
         }
       }
     },
     "/all-doctors": {
       "get": {
-        "description": "",
+        "description": "Get all doctors (Admin only).",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "List of all doctors."
           }
         }
       }
     },
     "/change-availability": {
       "post": {
-        "description": "",
+        "description": "Change doctor availability (Admin or Doctor only).",
         "parameters": [
           {
             "name": "body",
@@ -144,7 +144,7 @@
               "type": "object",
               "properties": {
                 "docId": {
-                  "example": "any"
+                  "example": "12345"
                 }
               }
             }
@@ -152,34 +152,34 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Availability changed successfully."
           }
         }
       }
     },
     "/dashboard": {
       "get": {
-        "description": "",
+        "description": "Get admin or doctor dashboard details.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Dashboard details."
           }
         }
       }
     },
     "/list": {
       "get": {
-        "description": "",
+        "description": "Get list of doctors.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "List of doctors."
           }
         }
       }
     },
     "/complete-appointment": {
       "post": {
-        "description": "",
+        "description": "Mark an appointment as complete (Doctor only).",
         "parameters": [
           {
             "name": "body",
@@ -188,10 +188,10 @@
               "type": "object",
               "properties": {
                 "docId": {
-                  "example": "any"
+                  "example": "12345"
                 },
                 "appointmentId": {
-                  "example": "any"
+                  "example": "67890"
                 }
               }
             }
@@ -199,24 +199,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Appointment marked as complete."
           }
         }
       }
     },
     "/profile": {
       "get": {
-        "description": "",
+        "description": "Get doctor profile (Doctor only).",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Doctor profile details."
           }
         }
       }
     },
     "/update-profile": {
       "post": {
-        "description": "",
+        "description": "Update user profile.",
         "parameters": [
           {
             "name": "body",
@@ -225,22 +225,22 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "12345"
                 },
                 "name": {
-                  "example": "any"
+                  "example": "John Doe"
                 },
                 "phone": {
-                  "example": "any"
+                  "example": "1234567890"
                 },
                 "address": {
-                  "example": "any"
+                  "example": "123 Main Street"
                 },
                 "dob": {
-                  "example": "any"
+                  "example": "1990-01-01"
                 },
                 "gender": {
-                  "example": "any"
+                  "example": "Male"
                 }
               }
             }
@@ -248,14 +248,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Profile updated successfully."
           }
         }
       }
     },
     "/register": {
       "post": {
-        "description": "",
+        "description": "Register a new user.",
         "parameters": [
           {
             "name": "body",
@@ -264,13 +264,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "example": "John Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "johndoe@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "password"
                 }
               }
             }
@@ -278,24 +278,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "User registered successfully."
           }
         }
       }
     },
     "/get-profile": {
       "get": {
-        "description": "",
+        "description": "Get user profile (User only).",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "User profile details."
           }
         }
       }
     },
     "/book-appointment": {
       "post": {
-        "description": "",
+        "description": "Book an appointment (User only).",
         "parameters": [
           {
             "name": "body",
@@ -304,22 +304,23 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "12345"
                 },
                 "docId": {
-                  "example": "any"
+                  "example": "67890"
                 },
                 "slotDate": {
-                  "example": "any"
+                  "example": "2024-12-15"
                 },
                 "slotTime": {
-                  "example": "any"
+                  "example": "10:30 AM"
                 }
               }
             }
           }
         ],
         "responses": {
+
           "200": {
             "description": "OK"
           }
