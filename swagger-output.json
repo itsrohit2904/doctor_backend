@@ -5,7 +5,7 @@
     "description": "API documentation for the Doctor Appointment system.",
     "version": "1.0.0"
   },
-  "host": "doctor-backend-1-pbd3.onrender.com",
+  "host": "doctor-backend-nt74.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
